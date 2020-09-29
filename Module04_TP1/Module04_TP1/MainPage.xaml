@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:customrenderer="clr-namespace:Module04_TP1.CustomRenderer"
+             xmlns:local="clr-namespace:Module04_TP1;assembly=Module04_TP1"
              mc:Ignorable="d"
              x:Class="Module04_TP1.MainPage">
 
@@ -17,10 +18,12 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Label TextColor="White" Text="Nouveau" Grid.Column="0"  HorizontalOptions="Center"/>
-            <Label TextColor="White" Text="Accueil" Grid.Column="1" HorizontalOptions="Center"/>
-            <Label TextColor="White" Text="Rechercher" Grid.Column="2" HorizontalOptions="Center"/>
+            <ImageButton Grid.Column="0"  HorizontalOptions="Start" Source="{local:ImageResource Module04_TP1.Images.pencil.png}" WidthRequest="25"/>
+            <Label TextColor="White" FontAttributes="Bold" FontSize="20" Text="Accueil" Grid.Column="1" HorizontalOptions="Center"/>
+            <ImageButton Grid.Column="2"  HorizontalOptions="End" Source="{local:ImageResource Module04_TP1.Images.search.png}" WidthRequest="25"/>
         </Grid>
+
+        <local:Connection Padding="10,0"/>
 
         <ScrollView VerticalOptions="FillAndExpand">
 
@@ -37,22 +40,23 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Source="" BackgroundColor="AliceBlue" Grid.Column="0" Grid.RowSpan="2"/>
+                    <Image Source="https://picsum.photos/50/50/?random" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
                     <Label Text="Roi Loth"  Grid.Column="1"/>
                     <Label Text="table_ronde@kaamelott.fr" Grid.Column="2"/>
                     <Label Text="Il y a 1600 ans" Grid.Column="3" HorizontalTextAlignment="End"/>
                     <customrenderer:BorderlessEditor AutoSize="TextChanges" IsReadOnly="True"  Text="Tempora mori, tempora mundis recorda . Voilà, eh ben ça par exemple, ça ne veut absolument rien dire, mais l'effet reste le même…" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
                 </Grid>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="Répondre" HorizontalOptions="CenterAndExpand"/>
-                    <Label Text="Retweet" HorizontalOptions="CenterAndExpand"/>
-                    <Label Text="Favoris" HorizontalOptions="CenterAndExpand"/>
-
+                    <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.reply.png}" WidthRequest="25"/>
+                    <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.retweet.png}" WidthRequest="25"/>
+                    <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.favorite.png}" WidthRequest="25"/>
                 </StackLayout>
                 <BoxView BackgroundColor="LightGray" HeightRequest="1" Opacity="20"/>
             </StackLayout>
         </ScrollView>
-
+        <StackLayout>
+            <Slider Minimum="0" Maximum="100" Value="101"/>
+        </StackLayout>
         <Grid HeightRequest="75" VerticalOptions="End">
             <Grid.RowDefinitions>
                 <RowDefinition />
