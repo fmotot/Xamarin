@@ -7,15 +7,66 @@
              x:Class="Module04_TP1.MainPage">
 
     <StackLayout>
-        <StackLayout Orientation="Horizontal" Padding="10, 25, 10, 25" BackgroundColor="#58B0F0">
-            <Label Text="Nouveau"  HorizontalOptions="Start"/>
-            <Label Text="Accueil" HorizontalOptions="Center"/>
-            <Label Text="Rechercher" HorizontalOptions="End"/>
-        </StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Grid Padding="10, 25, 10, 25" BackgroundColor="#58B0F0" VerticalOptions="Start">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label TextColor="White" Text="Nouveau" Grid.Column="0"  HorizontalOptions="Center"/>
+            <Label TextColor="White" Text="Accueil" Grid.Column="1" HorizontalOptions="Center"/>
+            <Label TextColor="White" Text="Rechercher" Grid.Column="2" HorizontalOptions="Center"/>
+        </Grid>
+
+        <ScrollView VerticalOptions="FillAndExpand">
+
+            <StackLayout Padding="10, 25, 10, 25">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="" BackgroundColor="AliceBlue" Grid.Column="0" Grid.RowSpan="2"/>
+                    <Label Text="Roi Loth"  Grid.Column="1"/>
+                    <Label Text="table_ronde@kaamelott.fr" Grid.Column="2"/>
+                    <Label Text="Il y a 1600 ans" Grid.Column="3" HorizontalTextAlignment="End"/>
+                    <Label Text="Tempora mori, tempora mundis recorda . Voilà, eh ben ça par exemple, ça ne veut absolument rien dire, mais l'effet reste le même…" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
+                </Grid>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Répondre" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Retweet" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Favoris" HorizontalOptions="CenterAndExpand"/>
+
+                </StackLayout>
+                <BoxView BackgroundColor="LightGray" HeightRequest="1" Opacity="20"/>
+            </StackLayout>
+        </ScrollView>
+
+        <Grid HeightRequest="75" VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label TextColor="LightGray" Text="Fil" Grid.Column="0"  HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label TextColor="LightGray" Text="Notifications" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label TextColor="LightGray" Text="Messages" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label TextColor="LightGray" Text="Moi" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
     </StackLayout>
 
 </ContentPage>
