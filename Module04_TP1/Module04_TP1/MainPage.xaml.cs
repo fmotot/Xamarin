@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Module04_TP1.Models;
+using Module04_TP1.Services;
 
 namespace Module04_TP1
 {
@@ -21,6 +23,13 @@ namespace Module04_TP1
 
         public void DisplayTweets()
         {
+            TwitterService twitterService = new TwitterService();
+            List<Tweet> tweets = twitterService.GetTweets("yololo");
+
+            foreach (var tweet in tweets)
+            {
+                this.TweetsDisplay.Children.Add(new DisplayTweet(tweet));
+            }
             TweetsDisplay.IsVisible = true;
         }
     }

@@ -25,16 +25,9 @@
 
         <local:Connection x:Name="ConnectionDisplay" Padding="10,0" VerticalOptions="FillAndExpand"/>
 
-        <ScrollView x:Name="TweetsDisplay" IsVisible="False" VerticalOptions="FillAndExpand">
+        <ScrollView  VerticalOptions="FillAndExpand">
 
-            <StackLayout Padding="10">
-                <local:Tweet />
-                <local:Tweet />
-                <local:Tweet />
-                <local:Tweet />
-                <local:Tweet />
-                <local:Tweet />
-                <local:Tweet />
+            <StackLayout x:Name="TweetsDisplay" IsVisible="False" Padding="10">
             </StackLayout>
         </ScrollView>
         
