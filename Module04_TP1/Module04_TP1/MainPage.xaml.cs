@@ -15,15 +15,15 @@ namespace Module04_TP1
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        ITwitterService twitterService;
         public MainPage()
         {
-            
+            this.twitterService = new TwitterService();
             InitializeComponent();
         }
 
         public void DisplayTweets()
         {
-            TwitterService twitterService = new TwitterService();
             List<Tweet> tweets = twitterService.GetTweets("yololo");
 
             foreach (var tweet in tweets)

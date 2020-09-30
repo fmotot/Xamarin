@@ -1,11 +1,7 @@
 ﻿using Module04_TP1.Services;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,9 +14,12 @@ namespace Module04_TP1
         private const string PASSWORD_ERROR = "Mot de passe trop court (6 caractères minimum)";
         private const string INCORRECT_LOGIN_PASSWORD = "Identifiant ou mot de passe incorrect";
 
+        private ITwitterService ts;
+
         public Button Btn { get; set; }
         public Connection()
         {
+            ts = new TwitterService();
             InitializeComponent();
             this.Btn = ConnectionBtn;
             this.ConnectionBtn.Clicked += ConnectionBtn_Clicked;
@@ -53,8 +52,7 @@ namespace Module04_TP1
                 Debug.WriteLine("Login : " + this.IdEntry.Text);
                 Debug.WriteLine("Password : " + this.PasswordEntry.Text);
                 Debug.WriteLine("Se souvenir : " + this.RememberMeSwitch.IsToggled.ToString());
-
-                TwitterService ts = new TwitterService();
+                
                 if (ts.Authenticate(this.IdEntry.Text, this.PasswordEntry.Text))
                 {
                     this.IsVisible = false;

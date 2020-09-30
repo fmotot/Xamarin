@@ -16,8 +16,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="75"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Image Source="https://picsum.photos/50/50/?random" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>

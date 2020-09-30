@@ -19,7 +19,7 @@ namespace Module04_TP1
             this.TextZone.Text = tweet.Text;
             this.Pseudo.Text = tweet.Pseudo;
             this.Login.Text = tweet.Login;
-            this.Date.Text = tweet.CreationDate.ToString();
+            this.Date.Text = tweet.CreationDate.ToString("dd/MM/yyyy H:mm:ss");
         }
     }
 }
