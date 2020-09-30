@@ -15,7 +15,13 @@ namespace Module04_TP1
     {
         public MainPage()
         {
+            
             InitializeComponent();
+        }
+
+        public void DisplayTweets()
+        {
+            TweetsDisplay.IsVisible = true;
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customrenderer="clr-namespace:Module04_TP1.CustomRenderer"
+             xmlns:local="clr-namespace:Module04_TP1;assembly=Module04_TP1"
+             mc:Ignorable="d"
+             x:Class="Module04_TP1.Tweet">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="https://picsum.photos/50/50/?random" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="Roi Loth"  Grid.Column="1"/>
+            <Label Text="table_ronde@kaamelott.fr" Grid.Column="2"/>
+            <Label Text="Il y a 1600 ans" Grid.Column="3" HorizontalTextAlignment="End"/>
+            <customrenderer:BorderlessEditor AutoSize="TextChanges" IsReadOnly="True"  Text="Tempora mori, tempora mundis recorda . Voilà, eh ben ça par exemple, ça ne veut absolument rien dire, mais l'effet reste le même…" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+        <StackLayout Orientation="Horizontal">
+            <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.reply.png}" WidthRequest="25"/>
+            <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.retweet.png}" WidthRequest="25"/>
+            <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.favorite.png}" WidthRequest="25"/>
+        </StackLayout>
+        <BoxView BackgroundColor="LightGray" HeightRequest="1" Opacity="20"/>
+    </StackLayout>
+</ContentView>

@@ -23,40 +23,21 @@
             <ImageButton Grid.Column="2"  HorizontalOptions="End" Source="{local:ImageResource Module04_TP1.Images.search.png}" WidthRequest="25"/>
         </Grid>
 
-        <local:Connection Padding="10,0"/>
+        <local:Connection x:Name="ConnectionDisplay" Padding="10,0" VerticalOptions="FillAndExpand"/>
 
-        <ScrollView VerticalOptions="FillAndExpand">
+        <ScrollView x:Name="TweetsDisplay" IsVisible="False" VerticalOptions="FillAndExpand">
 
-            <StackLayout Padding="10, 25, 10, 25">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="75"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image Source="https://picsum.photos/50/50/?random" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    <Label Text="Roi Loth"  Grid.Column="1"/>
-                    <Label Text="table_ronde@kaamelott.fr" Grid.Column="2"/>
-                    <Label Text="Il y a 1600 ans" Grid.Column="3" HorizontalTextAlignment="End"/>
-                    <customrenderer:BorderlessEditor AutoSize="TextChanges" IsReadOnly="True"  Text="Tempora mori, tempora mundis recorda . Voilà, eh ben ça par exemple, ça ne veut absolument rien dire, mais l'effet reste le même…" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
-                </Grid>
-                <StackLayout Orientation="Horizontal">
-                    <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.reply.png}" WidthRequest="25"/>
-                    <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.retweet.png}" WidthRequest="25"/>
-                    <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.favorite.png}" WidthRequest="25"/>
-                </StackLayout>
-                <BoxView BackgroundColor="LightGray" HeightRequest="1" Opacity="20"/>
+            <StackLayout Padding="10">
+                <local:Tweet />
+                <local:Tweet />
+                <local:Tweet />
+                <local:Tweet />
+                <local:Tweet />
+                <local:Tweet />
+                <local:Tweet />
             </StackLayout>
         </ScrollView>
-        <StackLayout>
-            <Slider Minimum="0" Maximum="100" Value="101"/>
-        </StackLayout>
+        
         <Grid HeightRequest="75" VerticalOptions="End">
             <Grid.RowDefinitions>
                 <RowDefinition />
