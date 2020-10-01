@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Module04_TP1
+namespace Module04_TP1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class BottomMenu : ContentView
     {
-        public Page1()
+        public BottomMenu()
         {
             InitializeComponent();
         }

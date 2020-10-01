@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Module04_TP1;assembly=Module04_TP1"
+             xmlns:customrenderer="clr-namespace:Module04_TP1.CustomRenderer"
+             xmlns:views="clr-namespace:Module04_TP1.Views"
+             mc:Ignorable="d"
+             x:Class="Module04_TP1.TweetsPage">
+
+    <StackLayout>
+        <views:TopMenu VerticalOptions="Start"/>
+
+        <ListView x:Name="MaListe" SeparatorColor="Blue">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <StackLayout Margin="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="https://picsum.photos/50/50/?random" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label Text="{Binding Pseudo}" LineBreakMode="TailTruncation" Grid.Column="1"/>
+                                <Label Text="{Binding Login}" Grid.Column="2"/>
+                                <Label Text="{Binding CreationDate, StringFormat='{0:dd/MM/yyyy HH:mm:ss}'}" Grid.Column="3" HorizontalTextAlignment="End"/>
+                                <Label Text="{Binding Text}" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
+                            </Grid>
+                            <StackLayout Orientation="Horizontal">
+                                <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.reply.png}" WidthRequest="25"/>
+                                <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.retweet.png}" WidthRequest="25"/>
+                                <ImageButton HorizontalOptions="CenterAndExpand" Source="{local:ImageResource Module04_TP1.Images.favorite.png}" WidthRequest="25"/>
+                            </StackLayout>
+                            <!--<BoxView BackgroundColor="LightGray" HeightRequest="1" Opacity="20"/>-->
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <views:BottomMenu />
+
+    </StackLayout>
+</ContentPage>

@@ -18,19 +18,32 @@ namespace Module04_TP1
         ITwitterService twitterService;
         public MainPage()
         {
-            this.twitterService = new TwitterService();
             InitializeComponent();
+            //this.twitterService = new TwitterService();
         }
 
-        public void DisplayTweets()
+        protected override void OnAppearing()
         {
-            List<Tweet> tweets = twitterService.GetTweets("yololo");
-
-            foreach (var tweet in tweets)
+            Task.Factory.StartNew(() =>
             {
-                this.TweetsDisplay.Children.Add(new DisplayTweet(tweet));
-            }
-            TweetsDisplay.IsVisible = true;
+                Task.Delay(TimeSpan.FromSeconds(1.5)).Wait();
+                Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    Navigation.PushAsync(new ConnectionPage());
+                });
+            });
         }
+
+
+        //public void DisplayTweets()
+        //{
+        //    List<Tweet> tweets = twitterService.GetTweets("yololo");
+
+        //    foreach (var tweet in tweets)
+        //    {
+        //        this.TweetsDisplay.Children.Add(new DisplayTweet(tweet));
+        //    }
+        //    TweetsDisplay.IsVisible = true;
+        //}
     }
 }

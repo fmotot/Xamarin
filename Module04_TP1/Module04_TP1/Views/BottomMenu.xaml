@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Module04_TP1.Views.BottomMenu">
+  <ContentView.Content>
+        <Grid HeightRequest="75" VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label TextColor="LightGray" Text="Fil" Grid.Column="0"  HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label TextColor="LightGray" Text="Notifications" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label TextColor="LightGray" Text="Messages" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label TextColor="LightGray" Text="Moi" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

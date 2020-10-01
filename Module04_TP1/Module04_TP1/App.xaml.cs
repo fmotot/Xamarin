@@ -9,8 +9,8 @@ namespace Module04_TP1
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+            //MainPage = new MainPage();
         }
 
         protected override void OnStart()

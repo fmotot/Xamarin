@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:customrenderer="clr-namespace:Module04_TP1.CustomRenderer"
+             xmlns:local="clr-namespace:Module04_TP1;assembly=Module04_TP1"
+             xmlns:views="clr-namespace:Module04_TP1.Views"
              mc:Ignorable="d"
-             x:Class="Module04_TP1.MainPage">
+             x:Class="Module04_TP1.ConnectionPage">
 
     <StackLayout>
+        <views:TopMenu />
 
-        <Label Text="Twitter" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="30" TextColor="Blue" Opacity="0.4"/>
+        <local:Connection x:Name="ConnectionDisplay" Padding="10,0" VerticalOptions="CenterAndExpand"/>
 
+        <views:BottomMenu />
     </StackLayout>
-
 </ContentPage>

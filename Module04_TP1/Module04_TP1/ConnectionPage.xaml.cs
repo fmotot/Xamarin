@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Module04_TP1
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DisplayTweet : ContentView
+    public partial class ConnectionPage : ContentPage
     {
-        public DisplayTweet(Models.Tweet tweet)
+        public ConnectionPage()
         {
             InitializeComponent();
-
-            this.TextZone.Text = tweet.Text;
-            this.Pseudo.Text = tweet.Pseudo;
-            this.Login.Text = tweet.Login;
-            this.Date.Text = tweet.CreationDate.ToString("dd/MM/yyyy H:mm:ss");
         }
     }
 }

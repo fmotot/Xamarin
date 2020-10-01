@@ -14,7 +14,7 @@ namespace Module04_TP1
         private const string LOGIN_ERROR = "Identifiant trop court (3 caractères minimum)";
         private const string PASSWORD_ERROR = "Mot de passe trop court (6 caractères minimum)";
         private const string INCORRECT_LOGIN_PASSWORD = "Identifiant ou mot de passe incorrect";
-
+        private const string NO_INTERNET = "Pas de connexion internet";
         private ITwitterService ts;
 
         public Button Btn { get; set; }
@@ -61,12 +61,8 @@ namespace Module04_TP1
 
                     if (ts.Authenticate(this.IdEntry.Text, this.PasswordEntry.Text))
                     {
-                        this.IsVisible = false;
                         this.ErrorDisplay.IsVisible = false;
-                        if ((this.Parent.Parent as MainPage) != null)
-                        {
-                            (this.Parent.Parent as MainPage).DisplayTweets();
-                        }
+                        Navigation.PushAsync(new TweetsPage());
                     }
                     else
                     {
@@ -82,7 +78,7 @@ namespace Module04_TP1
             }
             else
             {
-                this.ErrorDisplay.Text = "Pas de connexion internet";
+                this.ErrorDisplay.Text = NO_INTERNET;
                 this.ErrorDisplay.IsVisible = true;
             }
         }
