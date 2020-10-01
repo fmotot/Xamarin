@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Text;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,50 +28,61 @@ namespace Module04_TP1
 
         private void ConnectionBtn_Clicked(object sender, EventArgs e)
         {
-            bool testLogin = true;
-            bool testPassword = true;
-            StringBuilder sb = new StringBuilder();
+            var connection = Connectivity.NetworkAccess;
 
-            if (this.IdEntry.Text == null || this.IdEntry.Text.ToString().Length < 3)
+            if (connection == NetworkAccess.Internet)
             {
-                testLogin = false;
-                sb.Append(LOGIN_ERROR);
-            }
-            if (this.PasswordEntry.Text == null || this.PasswordEntry.Text.ToString().Length < 6)
-            {
-                testPassword = false;
-                if (!testLogin)
+
+                bool testLogin = true;
+                bool testPassword = true;
+                StringBuilder sb = new StringBuilder();
+
+                if (this.IdEntry.Text == null || this.IdEntry.Text.ToString().Length < 3)
                 {
-                    sb.Append("\n");
+                    testLogin = false;
+                    sb.Append(LOGIN_ERROR);
                 }
-                sb.Append(PASSWORD_ERROR);
-            }
-
-            if (testLogin && testPassword)
-            {
-                Debug.WriteLine("Boutoonnn !!!!!!!!!!!");
-                Debug.WriteLine("Login : " + this.IdEntry.Text);
-                Debug.WriteLine("Password : " + this.PasswordEntry.Text);
-                Debug.WriteLine("Se souvenir : " + this.RememberMeSwitch.IsToggled.ToString());
-                
-                if (ts.Authenticate(this.IdEntry.Text, this.PasswordEntry.Text))
+                if (this.PasswordEntry.Text == null || this.PasswordEntry.Text.ToString().Length < 6)
                 {
-                    this.IsVisible = false;
-                    this.ErrorDisplay.IsVisible = false;
-                    if ((this.Parent.Parent as MainPage) != null)
+                    testPassword = false;
+                    if (!testLogin)
                     {
-                        (this.Parent.Parent as MainPage).DisplayTweets();
+                        sb.Append("\n");
+                    }
+                    sb.Append(PASSWORD_ERROR);
+                }
+
+                if (testLogin && testPassword)
+                {
+                    Debug.WriteLine("Boutoonnn !!!!!!!!!!!");
+                    Debug.WriteLine("Login : " + this.IdEntry.Text);
+                    Debug.WriteLine("Password : " + this.PasswordEntry.Text);
+                    Debug.WriteLine("Se souvenir : " + this.RememberMeSwitch.IsToggled.ToString());
+
+                    if (ts.Authenticate(this.IdEntry.Text, this.PasswordEntry.Text))
+                    {
+                        this.IsVisible = false;
+                        this.ErrorDisplay.IsVisible = false;
+                        if ((this.Parent.Parent as MainPage) != null)
+                        {
+                            (this.Parent.Parent as MainPage).DisplayTweets();
+                        }
+                    }
+                    else
+                    {
+                        this.ErrorDisplay.Text = INCORRECT_LOGIN_PASSWORD;
+                        this.ErrorDisplay.IsVisible = true;
                     }
                 }
                 else
                 {
-                    this.ErrorDisplay.Text = INCORRECT_LOGIN_PASSWORD;
+                    this.ErrorDisplay.Text = sb.ToString();
                     this.ErrorDisplay.IsVisible = true;
                 }
             }
             else
             {
-                this.ErrorDisplay.Text = sb.ToString();
+                this.ErrorDisplay.Text = "Pas de connexion internet";
                 this.ErrorDisplay.IsVisible = true;
             }
         }

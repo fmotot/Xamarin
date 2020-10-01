@@ -21,7 +21,7 @@
             </Grid.ColumnDefinitions>
 
             <Image Source="https://picsum.photos/50/50/?random" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label x:Name="Pseudo" Grid.Column="1"/>
+            <Label x:Name="Pseudo" LineBreakMode="TailTruncation" Grid.Column="1"/>
             <Label x:Name="Login" Grid.Column="2"/>
             <Label x:Name="Date" Grid.Column="3" HorizontalTextAlignment="End"/>
             <customrenderer:BorderlessEditor AutoSize="TextChanges" IsReadOnly="True"  x:Name="TextZone" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>

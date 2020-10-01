@@ -25,7 +25,7 @@ namespace Module04_TP1.Services
                 {
                     Id = 1,
                     Login = "loth@kaamelott.fr",
-                    Pseudo = "Loth",
+                    Pseudo = "Loth d'Orcanie",
                     CreationDate = new DateTime(427, 1, 12, 16, 35, 42),
                     Text = "Tempora mori, tempora mundis recorda . Voilà, eh ben ça par exemple, ça ne veut absolument rien dire, mais l’effet reste le même…"
                 }
